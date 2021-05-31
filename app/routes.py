@@ -1,5 +1,5 @@
 from app import app
-from flask import Flask, Response, redirect, url_for, request, session, abort, render_template
+from flask import Flask, Response, redirect, url_for, request, session, abort, render_template, json
 from flask_login import LoginManager, UserMixin,login_required, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import table, column, select
@@ -21,8 +21,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-
-class User(UserMixin, db.Model):
+class Users(db.Model):
     __tablename__ = "Users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -33,50 +32,20 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {0} {1} {2} {3}>'.format(self.id,self.login,self.password,self.email)
 
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
 
-guides = {
-"galleries" :[
-    { "title":"Chin Zhao",
-    "description":"Nieustraszony wojownik",
-    "rating":4.8,
-    "feedback":23
-    },
-    { "title":"Rino Jackson",
-    "description":"Błyskotliwy odkrywca",
-    "rating":4.1,
-    "feedback":12
-    },
-    { "title":"Sixto Rodriguez",
-    "description":"Znawca tygrysów",
-    "rating":4.2,
-    "feedback":33
-    },
-    { "title":"Sai Gon",
-    "description":"Wszechstronnie utalentowany",
-    "rating":3,
-    "feedback":6
-    },
-    { "title":"Caitlin Rivers",
-    "description":"Przyjaciel natury",
-    "rating":4,
-    "feedback":20
-    },
-    { "title":"Martin Hope",
-    "description":"Głos nadziei",
-    "rating":3.6,
-    "feedback":7
-    }
-    ]
-}
+    def __repr__(self):
+        return "%s" % (self.id)
 
-url = ["img/guide1.jpg","img/guide2.jpg","img/guide3.jpg","img/guide4.jpg","img/guide5.jpg","img/guide6.jpg"]
-
+json_url = os.path.join(os.path.realpath(os.path.dirname(__file__)), "static/data", "guides.json")
+guides = json.load(open(json_url))
 
 @app.route("/")
 def main():
-    global url
     global guides
-    return render_template('index.html', len = len(guides["galleries"]), guides = guides["galleries"], url=url) 
+    return render_template('index.html', len = len(guides["galleries"]), guides = guides["galleries"], url=[ x["img"] for x in guides["galleries"] ]) 
 
 
 @app.route("/register")
@@ -110,12 +79,11 @@ def login():
             login = request.form['login']
             password = request.form['password']
             user=db.session.query(Users).filter_by(login=login)
-            for usertemp in db.session.query(Users).filter_by(login=login):
+            for usertemp in user:
                 user = usertemp
             if password == user.password and login == user.login:
-                id = user.id
-                user = User(id)
-                login_user(user)
+                session['login'] = login
+                login_user(User(user.id))
                 return redirect(url_for("main"))
             else:
                 return abort(401)
@@ -144,9 +112,8 @@ def load_user(userid):
 @app.route("/account")
 @login_required
 def account():
-    global url
     global guides
-    return render_template("konto.html", len = len(guides["galleries"]), guides = guides["galleries"], url=url) 
+    return render_template("konto.html", len = len(guides["galleries"]), guides = guides["galleries"], url=[ x["img"] for x in guides["galleries"] ]) 
 
 
 if __name__ == '__main__':

@@ -6,10 +6,14 @@ html, body {
     font-weight: bold;
 }
 body{
-    display: flex; /* bottom footer */
-    flex-direction: column; /* bottom footer */
     color: #E7BB85 !important;
     background-color: #331513;
+    background-image: url("../img/section.jpg");
+    background-position: center 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: calc(2146px - 150px);
     padding-right: 0 !important; /* fix modal fade */
 }
 button{
@@ -17,15 +21,9 @@ button{
     background-color: #E7BB85 !important;
     border: solid 3px #331513 !important;
 }
-#formContainer{
-    position: relative;
-    width: auto;
-    z-index: 1;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
 nav{
     width: 100%;
+    position: absolute !important;
     background:rgba(0, 0, 0, 0.5) !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -43,37 +41,12 @@ nav a:hover{
     max-width: 180px;
     min-width: 120px;
 }
-.form{
-    background-image: url("../img/form.png");
-    background-size: 100% 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    max-width: 725px;
-    color: #331513;
-}
-#contactTextarea{
-    max-height: 150px;
-}
-#formText{
-    transform: rotate(-12deg);
-    font-size: 2rem;
-}
-@media only screen and (max-width: 767px) {
-    #formText{
-        display: none;
-    }
-}
+
+
 footer{
-    margin-top: auto; /* bottom footer */
     background-color: #9A5303;
 }
 .modal-content{
     background-color: #E7BB85 !important;
     color: #331513 !important;
-}
-.msg{
-    margin-top: 15%;
-    text-align: center;
-    font-size: 1.5rem;
 }

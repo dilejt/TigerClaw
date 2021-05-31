@@ -1,0 +1,46 @@
+{
+    "galleries" :[
+        { 
+            "title":"Chin Zhao",
+            "description":"Nieustraszony wojownik",
+            "rating":4.8,
+            "feedback":23,
+            "img":"img/guide1.jpg"
+        },
+        { 
+            "title":"Rino Jackson",
+            "description":"Błyskotliwy odkrywca",
+            "rating":4.1,
+            "feedback":12,
+            "img":"img/guide2.jpg"
+        },
+        { 
+            "title":"Sixto Rodriguez",
+            "description":"Znawca tygrysów",
+            "rating":4.2,
+            "feedback":33,
+            "img":"img/guide3.jpg"
+        },
+        { 
+            "title":"Sai Gon",
+            "description":"Wszechstronnie utalentowany",
+            "rating":3,
+            "feedback":6,
+            "img":"img/guide4.jpg"
+        },
+        { 
+            "title":"Caitlin Rivers",
+            "description":"Przyjaciel natury",
+            "rating":4,
+            "feedback":20,
+            "img":"img/guide5.jpg"
+        },
+        { 
+            "title":"Martin Hope",
+            "description":"Głos nadziei",
+            "rating":3.6,
+            "feedback":7,
+            "img":"img/guide6.jpg"
+        }
+    ]
+}
