@@ -1,0 +1,418 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+body{
+    color: #E7BB85 !important;
+    background-color: #331513;
+    background-image: url("../img/section.jpg");
+    background-position: center 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: calc(2146px - 150px);
+    padding-right: 0 !important; /* fix modal fade */
+}
+button{
+    color: #331513 !important;
+    background-color: #E7BB85 !important;
+    border: solid 3px #331513 !important;
+}
+
+
+nav{
+    position: absolute !important;
+    background:rgba(0, 0, 0, 0.5) !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+nav a{
+    color: #E7BB85 !important;
+    font-size: 1.5em;
+}
+nav a:hover{
+    color: #DA9C47 !important;
+}
+.navbar-brand img{
+    height: auto;
+    width: 20vw;
+    max-width: 180px;
+    min-width: 120px;
+}
+
+
+header{
+    background-image: url("../img/bghead.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #B36F0A;
+    width: auto;
+    height: 100vh;
+}
+header img{
+    position: absolute;
+    top: 30vh;
+    right: 2%;
+    max-width: 85%;
+    height: auto;
+}
+@media only screen and (min-width: 1601px) {
+    header img{
+        top: calc(50% - 9vh);
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 800px) and (max-height: 530px){
+    header img{
+        display: none;
+    }
+}
+@media only screen and (max-height: 500px){
+    header img{
+        display: none;
+    }
+}
+#headerText{
+    position: absolute;
+    top: 700px;
+    left: 5vw;
+    font-size: 3rem;
+    word-spacing: 0.3rem;
+    line-height: 3rem;
+}
+@media only screen and (max-width: 1365px) {
+    #headerText{
+        display: none;
+    }
+}
+#rope{
+    position: absolute;
+    top: calc(100vh - 50px);
+    width: 100%;
+    height: 100px;
+    background-image: url("../img/rope.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 200% auto;
+    z-index: 4;
+}
+@media only screen and (min-width: 992px) {
+    #rope{
+        background-size: 100% auto;
+    }
+}
+#compass{
+    position: absolute;
+    /* top: calc(100vh - 135px); */
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    transform: rotate(-0.2deg);
+    background-image: url("../img/compass.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width: 30%;
+    height: 40%;
+    max-width: 270px;
+    max-height: 270px;
+    cursor: pointer;
+    z-index: 5;
+}
+@media only screen and (max-width: 767px) and (max-height: 480px){
+    #compass{
+        width: 20%;
+    }
+}
+@media only screen and (min-width: 768px) and (min-height: 480px){
+    #compass{
+        width: 10%;
+    }
+}
+@media only screen and (max-height: 480px){
+    #compass{
+        width: 10%;
+    }
+}
+
+
+
+#jungle{
+    position: relative;
+    width: auto;
+    height: 80vw;
+    z-index: 1;
+}
+@media only screen and (min-width: 1300px) {
+    #jungle{
+        height: 100vh;
+    }
+}
+.points{
+    position: absolute;
+    width: 6%;
+    max-width: 50px;
+    height: auto;
+    cursor: pointer;
+    z-index: 3;
+}
+#point1{
+    left: 15vw;
+    top: 40vw;
+}
+#point2{
+    left: 30vw;
+    top: 45vw;
+}
+#point3{
+    left: 35vw;
+    top: 32vw;
+}
+#point4{
+    left: 55vw;
+    top: 40vw;
+}
+#point5{
+    left: 70vw;
+    top: 45vw;
+}
+.paths{
+    position: absolute;
+    width: 6%;
+    max-width: 50px;
+    height: auto;
+    z-index: 2;
+    display: none;
+}
+#path1{
+    left: 18vw;
+    top: 37vw;
+}
+#path2{
+    width: 15%;
+    max-width: 300px;
+    left: 34vw;
+    top: 40vw;
+}
+#path3{
+    width: 55%;
+    max-width: 1024px;
+    left: 34vw;
+    top: 38vw;
+}
+#path4{
+    width: 15%;
+    max-width: 205px;
+    left: 57vw;
+    top: 38vw;
+}
+#path5{
+    width: 20%;
+    max-width: 354px;
+    left: 73vw;
+    top: 37vw;
+}
+.infoJungle{
+    position: absolute;
+    background-color: #B36F0A;
+    width: 20%;
+    height: auto;
+    max-width: 360px;
+    cursor: pointer;
+    z-index: 4;
+    display: none;
+}
+.textJungle{
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 2vw;
+}
+@media only screen and (min-width: 800px) {
+    .textJungle{
+        font-size: 12px;
+    }
+}
+@media only screen and (min-width: 1350px) {
+    .textJungle{
+        font-size: 20px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+}
+#info1{
+    top: 5vh;
+    left: 10vw;
+}
+#info2{
+    top: 15vh;
+    left: 40vw;
+}
+#info3{
+    top: 30vh;
+    left: 75vw;
+}
+@media only screen and (max-width: 767px) {
+    #info3{
+        top: 10vh;
+        left: 62vw;
+    }
+}
+#info4{
+    top: 10vh;
+    left: 60vw;
+}
+#info5{
+    top: 10vh;
+    left: 75vw;
+}
+@media only screen and (max-width: 767px) {
+    #info5{
+        left: 62vw;
+    }
+}
+@media only screen and (max-width: 767px) {
+    #info1, #info2, #info3, #info4, #info5{
+        width: 30%;
+    }
+}
+
+
+
+#traveler{
+    position: relative;
+    width: auto;
+    z-index: 1;
+    margin-top: 5vh;
+}
+
+#textTraveler1{
+    font-size: 2.5vw;
+    margin-left: 15px;
+    color: #DA9C47;
+}
+#textTraveler2{
+    font-size: 1.5vw;
+    margin-left: 15px;
+    color: #DA9C47;
+}
+@media only screen and (max-width: 767px) {
+    #textTraveler1,#textTraveler2{
+        display: none;
+    }
+}
+#formContainer{
+    position: relative;
+    width: auto;
+    z-index: 1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form{
+    background-image: url("../img/form.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    max-width: 725px;
+    color: #331513;
+}
+#contactTextarea{
+    max-height: 150px;
+}
+#formText{
+    transform: rotate(-12deg);
+    font-size: 2rem;
+}
+@media only screen and (max-width: 767px) {
+    #formText{
+        display: none;
+    }
+}
+#tiger{
+    background-image: url("../img/tiger.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 200% auto;
+}
+@media only screen and (max-width: 767px) {
+    #tiger{
+        background: none;
+    }
+}
+
+#rope2{
+    position: absolute;
+    margin-top: -50px;
+    width: 100%;
+    height: 100px;
+    background-image: url("../img/rope.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 200% auto;
+    z-index: 4;
+}
+@media only screen and (min-width: 992px) {
+    #rope2{
+        background-size: 100% auto;
+    }
+}
+
+#about{
+    background: url("../img/fight.jpg") fixed no-repeat;
+    background-size: cover;
+    background-position: 50% 250px;
+    position: relative;
+}
+@media only screen and (max-width: 767px) {
+    #about{
+        background: none;
+    }
+}
+#aboutBlur{
+    background:rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 767px) {
+    #aboutBlur {
+        background: none;
+    }
+}
+.aboutBox{
+    margin-top: 60px;
+    margin-bottom: 50px;
+    padding: 15px;
+    background-color: #DA9C47;
+    border: 8px dashed #331513;
+    border-style:(14,6,0);
+    color: #331513;
+    font-size: 1.2em;
+}
+.aboutBox .fas{
+    padding-bottom: 15px;
+}
+#hat{
+    display: none;
+}
+@media only screen and (min-width: 1840px) and (max-width: 1920px) and (min-height: 935px){
+    #hat{
+        display: block;
+        position: absolute;
+        top: 0vh;
+        left: 74vw;
+        z-index: 7;
+    }
+}
+
+
+footer{
+    background-color: #9A5303;
+}
+.modal-content{
+    background-color: #E7BB85 !important;
+    color: #331513 !important;
+}

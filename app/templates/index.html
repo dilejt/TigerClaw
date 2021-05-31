@@ -1,0 +1,232 @@
+{% extends "template.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+{% endblock %}
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="navbar-collapse collapse w-100 order-1 order-lg-0 dual-collapse2">
+    <ul class="navbar-nav mr-auto text-left">
+      <li class="nav-item active">
+        <a class="nav-link" href="/#jungle">Mapa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#traveler">Przewodnicy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#formContainer">Formularz</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#about">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+  <div class="mx-lg order-0">
+    <a class="navbar-brand" href="/">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" class="d-inline-block align-top" alt="TigerClaw">
+    </a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto text-left">
+      {% if current_user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="/account">Konto</a>
+      </li>
+      {% endif %}
+      {% if current_user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Wyloguj się</a>
+      </li>
+      {% endif %}
+      {% if current_user.is_authenticated %}
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Logowanie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Rejestracja</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+{% block header %}
+<header id="header">
+  <img src="{{ url_for('static', filename='img/texthead.png') }}" alt="powitanie">
+  <div id="headerText">Podołasz wyzwaniu?</div>
+  <div id="rope"></div>
+  <div id="compass"></div>
+</header>
+{% endblock %}
+{% block jungle %}
+<section id="jungle">
+  <img src="{{ url_for('static', filename='img/point.png') }}" id="point1" class="points" alt="punkt1">
+  <img src="{{ url_for('static', filename='img/point.png') }}" id="point2" class="points" alt="punkt2">
+  <img src="{{ url_for('static', filename='img/point.png') }}" id="point3" class="points" alt="punkt3">
+  <img src="{{ url_for('static', filename='img/point.png') }}" id="point4" class="points" alt="punkt4">
+  <img src="{{ url_for('static', filename='img/point.png') }}" id="point5" class="points" alt="punkt5">
+  <img src="{{ url_for('static', filename='img/path1.png') }}" id="path1" class="paths" alt="sciezka1">
+  <div id="info1" class="infoJungle">
+    <img class="img-fluid" src="{{ url_for('static', filename='img/animal1.png') }}" alt="slon">
+    <div class="textJungle">Jeden z trzech żyjących gatunków rodziny słoniowatych. Słoń indyjski jest mieszkańcem dżungli i przestrzeni trawiastych. Słonie żyją w stadach rodzinnych, liczących 15–30 osobników, którym przewodzi stara samica.</div>
+  </div>
+  <img src="{{ url_for('static', filename='img/path2.png') }}" id="path2" class="paths" alt="sciezka2">
+  <div id="info2" class="infoJungle">
+    <img class="img-fluid" src="{{ url_for('static', filename='img/animal2.png') }}" alt="tygrys">
+    <div class="textJungle">Najliczniejszy podgatunek tygrysa azjatyckiego, ssaka z rodziny kotowatych. Tygrys bengalski występuje na ciepłych, wilgotnych lasach, łąkach i lasach namorzynowych. Tygrys bengalski jest narodowym zwierzęciem Bangladeszu. Gatunek zagrożony wyginięciem.</div>
+  </div>
+  <img src="{{ url_for('static', filename='img/path3.png') }}" id="path3" class="paths" alt="sciezka3">
+  <div id="info3" class="infoJungle">
+    <img class="img-fluid" src="{{ url_for('static', filename='img/animal3.png') }}" alt="lew">
+    <div class="textJungle">Podgatunek lwa afrykańskiego. Jest on narodowym symbolem Indii. Obecnie osobniki występujące na wolności żyją tylko w Rezerwacie Gir Forest na skrajnym zachodzie Indii.</div>
+  </div>
+  <img src="{{ url_for('static', filename='img/path4.png') }}" id="path4" class="paths" alt="sciezka4">
+  <div id="info4" class="infoJungle">
+    <img class="img-fluid" src="{{ url_for('static', filename='img/animal4.png') }}" alt="waran">
+    <div class="textJungle">Gatunek gada z rodziny waranów nazywany smokiem z Komodo. Jest największym przedstawicielem jaszczurek i osiąga do 3m długości. Zamieszkuje tereny z roślinnością krzewiastą i zadrzewione. Samice potrafią rozmnażać się partenogenetycznie w przypadku braku samca. Ich pokarmem jest mięso, są także kanibalami.</div>
+  </div>
+  <img src="{{ url_for('static', filename='img/path5.png') }}" id="path5" class="paths" alt="sciezka5">
+  <div id="info5" class="infoJungle">
+    <img class="img-fluid" src="{{ url_for('static', filename='img/animal5.png') }}" alt="szerszen">
+    <div class="textJungle">Gatunek owada z rodziny osowatych, największy szerszeń świata. Jak podają media, jego użądlenia zabijają co roku w samej Japonii około 40 osób. Roje liczą do kilkuset osobników i mieszkają w gniazdach, które mogą osiągnąć średnicę 1 m.</div>
+  </div>
+</section>
+{% endblock %}
+{% block traveler %}
+<section id="traveler">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="textTraveler1">Nasi przewodnicy z krwi i kości</div><br/>
+        <div id="textTraveler2">To oni mogą zabrać was na wyprawę z której miejmy nadzieję wrócicie żywi.</div>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+    <p></p>
+    <div class="form-row">
+      {%for image in url%}
+      {% set outer_loop = loop.index %}
+      <div class="col-md-4">
+        <img class="w-50 rounded mx-auto d-block" src="{{ url_for('static', filename='' + image) }}">
+        {%for i in range(0, len) if i+1==outer_loop%}
+        <h3 class="text-center">{{guides[i]['title']}}</h3>
+        <div class="text-center">
+          <span class="attr">Opinie: </span>{{guides[i]['feedback']}}
+          <span class="attr">Ocena: </span>{{guides[i]['rating']}}
+          <p>{{guides[i]['description']}}</p>
+        </div>
+        {%endfor%}
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block formContainer %}
+<section id="formContainer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6 text-center">
+        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='./img/place1.jpg') }}"  alt="Pierwszy slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='./img/place2.jpg') }}"  alt="Drugi slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='./img/place3.jpg') }}"  alt="Trzeci slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='./img/place4.jpg') }}"  alt="Czwarty slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-50 mx-auto d-block rounded" src="{{ url_for('static', filename='./img/place5.jpg') }}"  alt="Piaty slide">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="tiger" class="col-md-6">
+        <div id="formText">Udaj się w głąb bezkresnej dżungli na prawdziwą przygodę z PAZUREM!</div>
+      </div>
+      <div class="col-md-6 form jumbotron mx-auto">
+        <form method="post" action="#" onsubmit="return checkForm()" > 
+          <label>Formularz kontaktowy</label>  
+          <div class="form-group">
+            <label class="sr-only" for="contactName">Imię</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="contactName" placeholder="Imię" onchange="checkName()">
+            <div id="errorName" class="form-text">Uzupełnij imię</div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="contactSName">Nazwisko</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="contactSName" placeholder="Nazwisko" onchange="checkSName()">
+            <div id="errorSName" class="form-text">Uzupełnij nazwisko</div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="contactEmail">E-mail</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="contactEmail" placeholder="E-mail" onchange="checkEmail()">
+            <div id="errorEmail" class="form-text">Uzupełnij e-mail</div>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="contactTextarea">Informacja</label>
+            <textarea maxlength="250" class="form-control mb-2 mr-sm-2" id="contactTextarea" placeholder="Informacja" onchange="checkTextarea()"></textarea>
+            <div id="errorTextarea" class="form-text">Napisz coś o sobie. (Maksymalnie 250 znaków)</div>
+          </div>
+          <button type="submit" class="btn btn-primary" value="submit">Wyślij</button>     
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block rope2 %}
+<div id="rope2"></div>
+{% endblock %}
+{% block about %}
+<section id="about">
+  <div id="aboutBlur">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 aboutBox rounded text-center">
+          <i class="fa-4x fas fa-hat-cowboy"></i>
+          <div>
+          Jesteśmy firmą turystyczną organizującą wyprawy z najbardziej doświadczonymi przewodnikami w głąb Indyjskich dżungli. Oferujemy niezapomnianą dawkę wrażeń nawet dla najbardziej wymagających ludzi na świecie.
+          </div>
+        </div>
+        <div class="col-md-4 aboutBox rounded text-center">
+          <i class="fa-4x fas fa-hiking"></i>
+          <div>
+            Najbliższe zapisy odwołane z powodu wirusa !
+          </div>
+        </div>
+        <div class="col-md-4 aboutBox rounded text-center">
+          <i class="fa-4x fas fa-phone"></i>
+          <div>
+            Kontakt telefoniczny: <br/>010 535 512 <br/><br/>Biuro: Polska <br/>Warszawa 00-001 <br/>ul. Tropikalna 15c <br/>8 a.m - 4 p.m<br/><br/>E-mail: <br/>biuro@TigerClaw.pl</div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <img id="hat" src="{{ url_for('static', filename='img/hat.png') }}" alt="kapelusz">
+</section>
+{% endblock %}
+{% block prescript %}
+<script src="{{ url_for('static', filename='js/forms.js') }}"></script>
+{% endblock %}
+{% block postscript %}
+<script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+{% endblock %}
