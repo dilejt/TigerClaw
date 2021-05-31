@@ -1,2 +1,5 @@
 # TigerClawFlask
- Fullstack, Flask
+Fullstack, Flask
+
+set FLASK_APP=aplikacja.py
+flask run
